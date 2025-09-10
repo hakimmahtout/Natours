@@ -8,6 +8,7 @@ import mongoSanitize from 'express-mongo-sanitize';
 import hpp from 'hpp';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
+import cors from 'cors';
 
 import { AppError } from './utils/appError.js';
 import globalErrorHandler from './controllers/errorController.js';
@@ -31,6 +32,21 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // 1) GLOBAL MIDDLEWARES
+
+//  Implement CORS
+
+app.use(cors());
+
+// api.natours.com, front-end natours.com
+
+// app.use(
+//   cors({
+//     origin: 'https://www.natours.com',
+//   }),
+// );
+
+app.options('*', cors());
+
 // Security headers + allow Leaflet
 // Further HELMET configuration for Security Policy (CSP)
 const scriptSrcUrls = [

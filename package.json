@@ -420,7 +420,7 @@
   },
   "scripts": {
     "start-dev": "cross-env NODE_ENV=development node --watch server.js",
-    "start": "cross-env NODE_ENV=production node --watch server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "watch:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --watch",
     "build:js": "esbuild ./public/js/index.js --bundle --minify --sourcemap --outfile=./public/js/bundle.js"
   },

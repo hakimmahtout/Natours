@@ -55,6 +55,7 @@
     "color-name": "^1.1.4",
     "combined-stream": "^1.0.8",
     "commander": "^12.1.0",
+    "compression": "^1.8.1",
     "concat-map": "^0.0.1",
     "confusing-browser-globals": "^1.0.11",
     "constantinople": "^4.0.1",
@@ -421,7 +422,7 @@
     "start-dev": "cross-env NODE_ENV=development node --watch server.js",
     "start-pro": "cross-env NODE_ENV=production node --watch server.js",
     "watch:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --watch",
-    "build:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js"
+    "build:js": "esbuild ./public/js/index.js --bundle --minify --sourcemap --outfile=./public/js/bundle.js"
   },
   "keywords": [],
   "author": "",

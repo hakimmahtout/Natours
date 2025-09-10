@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
 import hpp from 'hpp';
 import cookieParser from 'cookie-parser';
+import compression from 'compression';
 
 import { AppError } from './utils/appError.js';
 import globalErrorHandler from './controllers/errorController.js';
@@ -103,6 +104,8 @@ app.use(
 
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(compression());
 
 // 2) ROUTES
 app.use('/', viewRouter);

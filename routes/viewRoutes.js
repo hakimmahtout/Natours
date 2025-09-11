@@ -12,7 +12,7 @@ import { isLoggedIn, protect } from '../controllers/authController.js';
 
 export const viewRouter = express.Router();
 
-viewRouter.set(alerts);
+viewRouter.use(alerts);
 
 viewRouter.get('/', isLoggedIn, getOverview);
 

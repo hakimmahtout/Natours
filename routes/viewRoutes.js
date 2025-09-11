@@ -5,11 +5,14 @@ import {
   getLoginForm,
   getAccount,
   getMyTours,
+  alerts,
 } from '../controllers/viewController.js';
 
 import { isLoggedIn, protect } from '../controllers/authController.js';
 
 export const viewRouter = express.Router();
+
+viewRouter.set(alerts);
 
 viewRouter.get('/', isLoggedIn, getOverview);
 

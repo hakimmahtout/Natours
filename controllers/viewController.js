@@ -63,6 +63,14 @@ const getMyTours = catchAsync(async (req, res, next) => {
   });
 });
 
+const alerts = (req, res, next) => {
+  const { alert } = req.query;
+  if (alert === 'booking')
+    res.locals.alert =
+      "Your booking was successful! Please check your email for a confirmation. If your booking doesn't show up here immediatly, please come back later.";
+  next();
+};
+
 // const updateUserData = catchAsync(async (req, res, next) => {
 //   console.log(req.body);
 //   const updatedUser = await User.findByIdAndUpdate(
@@ -82,4 +90,4 @@ const getMyTours = catchAsync(async (req, res, next) => {
 //   });
 // });
 
-export { getOverview, getTour, getLoginForm, getAccount, getMyTours };
+export { getOverview, getTour, getLoginForm, getAccount, getMyTours, alerts };

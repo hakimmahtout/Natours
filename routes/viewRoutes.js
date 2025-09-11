@@ -9,11 +9,9 @@ import {
 
 import { isLoggedIn, protect } from '../controllers/authController.js';
 
-import { createBookingCheckout } from '../controllers/bookingController.js';
-
 export const viewRouter = express.Router();
 
-viewRouter.get('/', createBookingCheckout, isLoggedIn, getOverview);
+viewRouter.get('/', isLoggedIn, getOverview);
 
 viewRouter.get('/tour/:slug', isLoggedIn, getTour);
 

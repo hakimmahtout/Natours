@@ -18,6 +18,7 @@ import { userRouter } from './routes/userRoutes.js';
 import { reviewRouter } from './routes/reviewRoutes.js';
 import { viewRouter } from './routes/viewRoutes.js';
 import { bookingRouter } from './routes/bookingRoutes.js';
+import { webhookCheckout } from './controllers/bookingController.js';
 
 // Fix __dirname and __filename in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -97,6 +98,12 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again in an hour!',
 });
 app.use('/api', limiter);
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  webhookCheckout,
+);
 
 // Body parser
 app.use(express.json({ limit: '10kb' }));
